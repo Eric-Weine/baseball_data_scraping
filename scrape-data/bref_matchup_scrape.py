@@ -1,4 +1,3 @@
-# This should all work, but I need to make sure that 
 import pandas as pd
 import bs4 as bs
 
