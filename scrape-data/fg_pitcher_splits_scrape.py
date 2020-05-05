@@ -38,13 +38,17 @@ def scrape_splits(url):
 def write_off_table(f_obj, mlb_playerID, df, year):
 	lefty_df = df.query('Handedness == "vs L"')
 	if not lefty_df.empty:
-		insert_tuple = (mlb_playerID, year, "L", lefty_df.iloc[0].TBF, lefty_df.iloc[0].H, lefty_df.iloc[0].doubles, lefty_df.iloc[0].triples, lefty_df.iloc[0].HR, lefty_df.iloc[0].BB, lefty_df.iloc[0].SO, lefty_df.iloc[0].IBB, lefty_df.iloc[0].HBP)
+		insert_tuple = (mlb_playerID, year, "L", lefty_df.iloc[0].TBF, lefty_df.iloc[0].H, lefty_df.iloc[0].doubles,\
+ 				lefty_df.iloc[0].triples, lefty_df.iloc[0].HR, lefty_df.iloc[0].BB, lefty_df.iloc[0].SO, \ 
+				lefty_df.iloc[0].IBB, lefty_df.iloc[0].HBP)
 		insert_str = "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n" % insert_tuple
 		f_obj.write(insert_str)
 		print(insert_tuple)
 	righty_df = df.query('Handedness == "vs R"')
 	if not righty_df.empty:
-		insert_tuple = (mlb_playerID, year, "R", righty_df.iloc[0].TBF, righty_df.iloc[0].H, righty_df.iloc[0].doubles, righty_df.iloc[0].triples, righty_df.iloc[0].HR, righty_df.iloc[0].BB, righty_df.iloc[0].SO, righty_df.iloc[0].IBB, righty_df.iloc[0].HBP)
+		insert_tuple = (mlb_playerID, year, "R", righty_df.iloc[0].TBF, righty_df.iloc[0].H, \
+				righty_df.iloc[0].doubles, righty_df.iloc[0].triples, righty_df.iloc[0].HR, \
+				righty_df.iloc[0].BB, righty_df.iloc[0].SO, righty_df.iloc[0].IBB, righty_df.iloc[0].HBP)
 		print(insert_tuple)
 		insert_str = "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n" % insert_tuple
 		f_obj.write(insert_str)
